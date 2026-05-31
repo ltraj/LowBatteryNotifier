@@ -1,183 +1,105 @@
 # 🔋 Low Battery Notifier
 
-A lightweight Android battery alarm and analytics app designed to prevent unexpected phone shutdowns.
+A lightweight, ad-free Android battery alarm and analytics app designed to prevent unexpected phone shutdowns.
 
-The idea for this app came from a real problem: my phone often switched off during the night because the hotspot was left on, causing me to miss important calls from family. Existing battery alarm apps were either too basic, filled with ads, or lacked useful battery insights.
-
-Low Battery Notifier solves that problem by providing a loud customizable battery alarm along with battery analytics and shutdown predictions.
+Built out of frustration with missing important family calls when my phone died overnight, this app combines a reliable emergency alarm with local usage insights.
 
 ---
 
 ## ✨ Features
 
-### Battery Alarm
+### 🚨 Smart Battery Alarm
 
-- Custom low battery threshold (1%–50%)
-- Loud alarm when battery reaches threshold
-- Repeat alarm logic
-- Automatic alarm stop when charger is connected
-- Custom ringtone selection
-- Persistent monitoring notification
+* **Volume Override:** Forces full volume for the alarm even if your phone is set to low, silent, or mute modes.
+* **Custom Thresholds:** Set alerts anywhere between 1%–50%.
+* **Intelligent Behavior:** Loop/repeat logic until noticed, with automatic cutoff as soon as a charger is connected.
+* **Customization:** Choose your own custom ringtone.
+* **Persistent Monitoring:** Low-footprint ongoing notification ensures the system doesn't kill the background task.
 
-### Battery Analytics
+### 📊 Battery Analytics
 
-- Battery drain tracking
-- Charging session tracking
-- Average battery drain per hour
-- Estimated shutdown time
-- Confidence indicator for shutdown estimates
-- Weighted drain-rate calculation
-- Overnight battery drain analysis
-- Recent charging history
-- Battery usage insights
+* **Shutdown Predictions:** Calculates estimated time until shutdown with a confidence indicator based on a weighted drain rate.
+* **Drain Tracking:** Monitors hourly drain, overnight drain patterns, and active charging sessions.
+* **Local History:** View recent charging logs and trends without a single byte leaving your device.
 
-### Performance Focus
+### 🛡️ Performance & Privacy Focus
 
-- Event-driven architecture
-- No battery-draining polling loops
-- No cloud services
-- No user accounts
-- No internet dependency
-- All analytics stored locally
-
----
-
-## 📊 Analytics Included
-
-The app automatically records:
-
-- Charging start percentage
-- Charging end percentage
-- Charging duration
-- Battery drain samples
-- Average drain rate
-- Overnight battery drain patterns
-
-Using this data, the app provides:
-
-- Estimated time until shutdown
-- Average battery drain/hour
-- Charging statistics
-- Battery usage insights
+* **Zero Polling Loops:** Event-driven architecture uses Android battery broadcasts to maximize efficiency.
+* **100% Offline:** No internet permission, no cloud services, no trackers, and no user accounts required.
+* **Local Storage:** Data is stored strictly in a local SQLite database with automatic cleanup.
 
 ---
 
 ## 🏗 Architecture
 
-### Battery Efficient Design
-
-The app uses Android battery broadcasts instead of constantly checking battery status.
-
 ```text
-Battery Event
-      ↓
-Store Sample
-      ↓
-Calculate Insights Only When Opened
+Battery Broadcast Event ➔ Store Sample ➔ Calculate Insights (Only When App Opened)
+
 ```
 
-This approach minimizes battery usage while still providing useful analytics.
-
-### Storage
-
-- SQLite database
-- Local-only storage
-- Automatic cleanup of old records
+By calculating insights on-demand rather than in the background, the app ensures it never becomes the very thing it fights against: a battery drainer.
 
 ---
 
 ## 📱 Screenshots
-
 ### Main Screen
 
-(Add screenshot here)
+<img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/ac9c5b8c-6905-4859-8067-22fab3ae8284" />
+
 
 ### Analytics Screen
 
-(Add screenshot here)
+<img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/0495a4d3-3412-4dce-97e6-14e28999cc2e" />
+
 
 ### Settings Screen
 
-(Add screenshot here)
+<img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/2ff89787-ceee-4cfa-bd31-d7a2fbe634c6" />
+
 
 ### Alarm Notification
-
-(Add screenshot here)
-
+<img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/43e98ba6-e1d1-4741-b47a-ce0d13eefdc1" />
 ---
 
-## 🚀 Installation
+## 🚀 Installation & Build
 
 ### Download APK
 
-Download the latest APK from the Releases section.
+Grab the latest release directly from the **Releases** section.
 
 ### Build From Source
 
-Clone the repository:
-
 ```bash
 git clone https://github.com/ltraj/LowBatteryNotifier.git
+
 ```
 
-Open the project in Android Studio and run:
-
-```bash
-Build → Build APK(s)
-```
+Open the project in **Android Studio** and navigate to `Build` -> `Build APK(s)`.
 
 ---
 
 ## 🛠 Tech Stack
 
-- Kotlin
-- Jetpack Compose
-- Android SDK
-- Material 3
-- SQLite
-- Android Broadcast Receivers
+* **Language:** Kotlin
+* **UI Framework:** Jetpack Compose (Material 3)
+* **Storage:** SQLite
+* **Core Android:** Broadcast Receivers
 
 ---
 
-## 🔒 Privacy
+## 🤝 Contributing & Support
 
-This application:
-
-✅ Stores data only on your device
-
-✅ Does not send data to any server
-
-✅ Does not require an account
-
-✅ Does not use cloud storage
-
-✅ Does not track users
-
----
-
-## 🎯 Why I Built This
-
-I built this app because my phone frequently switched off overnight due to battery drain while hotspot was enabled. This caused me to miss important calls from family members early in the morning.
-
-Instead of relying on existing battery alarm apps, I decided to build my own solution and add useful battery analytics that help users better understand their battery usage patterns.
-
-
----
-
-## 🤝 Contributing
-
-Suggestions, bug reports, and pull requests are welcome.
-
-If you find a bug or have an idea for improvement, open an issue.
-
----
-
-## ⭐ Support
-
-If you find this project useful, consider giving it a star.
+Suggestions, bug reports, and pull requests are highly welcome. If you find this project saved your morning, consider giving it a **⭐ Star**!
 
 ---
 
 ## 📄 License
 
 MIT License
+
+
+
+
+
+
+
